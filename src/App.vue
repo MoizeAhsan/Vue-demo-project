@@ -11,6 +11,10 @@
             :incrementIdx="incrementIndex"
             :decrementIdx="decrementIndex"
             :totalQuestions="totalQuestions"
+            :Answered="isAnswered[index]"
+            :selectedAnswerIdx="selectedAnswer[index]"
+            :setAnsweredState="setAnswered"
+            :setSelectedAnswer="setSelectedAnswer"
           />
         </b-col>
       </b-row>
@@ -32,7 +36,9 @@ export default {
     return {
       questions: [],
       index: null,
-      totalQuestions: 0
+      totalQuestions: 0,
+      isAnswered: [],
+      selectedAnswer: []
     };
   },
   methods: {
@@ -42,6 +48,12 @@ export default {
     },
     decrementIndex() {
       if (this.index > 0) this.index--;
+    },
+    setAnswered(idx, state) {
+      this.isAnswered[idx] = Boolean(state);
+    },
+    setSelectedAnswer(idx, answerIdx) {
+      this.selectedAnswer[idx] = answerIdx;
     }
   },
   mounted: function() {
@@ -56,6 +68,10 @@ export default {
         if (data.results.length) {
           this.index = 0;
           this.totalQuestions = data.results.length;
+          for (let x = 0; x < data.results.length; x++) {
+            this.isAnswered.push(false);
+            this.selectedAnswer.push(null);
+          }
         }
       });
   }
