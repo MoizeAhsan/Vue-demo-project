@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # demo-app
 
 ## Project setup
@@ -27,3 +28,7 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+=======
+# Vue-demo-project
+Demo project for understanding basics of Vue.js
+>>>>>>> f6be409971d37c08a4468e4a5b5c395641b68552
