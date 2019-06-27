@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <NavBar :x="index" :y="totalQuestions"/>
+    <NavBar :x="index+1" :y="totalQuestions"/>
     <b-container>
       <b-row>
         <b-col sm="12" lg="12">
